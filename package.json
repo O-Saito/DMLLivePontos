@@ -1,0 +1,9 @@
+{
+    "name": "LivePontos",
+    "version": "1.0.0",
+    "main": "index.js",
+    "dependencies": {
+        "node-global-key-listener": "^0.3.0",
+        "sound-play": "^1.1.0"
+    }
+}
