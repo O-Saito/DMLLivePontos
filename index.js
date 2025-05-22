@@ -59,12 +59,13 @@ function getPlugin(plugin) {
 
       if (e.name != data.key) return;
       plugin.log('HOTKEY PRESSED');
-      const milisseconds = new Date() - startTime;
+      let milisseconds = new Date() - startTime;
       let seconds = milisseconds / 1000;
+      milisseconds = Math.floor(milisseconds % 1000);
       let minutes = Math.floor(seconds / 60);
-      seconds = seconds % 60;
+      seconds = Math.floor(seconds % 60);
       let hours = Math.floor(minutes / 60);
-      minutes = minutes % 60;
+      minutes = Math.floor(minutes % 60);
       const filePath = path.join(__dirname, 'data', fileName);
       fs.appendFile(filePath, `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}\r\n`, (err) => {
         if(err) {
